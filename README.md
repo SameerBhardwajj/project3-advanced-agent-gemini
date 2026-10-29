@@ -265,35 +265,14 @@ http://localhost:5173
 
 ## Demo accounts
 
-Employee:
+The seed script creates two local-only example accounts:
 
-```text
-a demo email address
-sameer123
-```
+| Role | Email | Password |
+| --- | --- | --- |
+| Employee | `employee@example.com` | `demo-password` |
+| Manager | `manager@example.com` | `demo-password` |
 
-Manager:
-
-```text
-a demo email address
-priya123
-```
-
-Demo Employee:
-
-```text
-24 total
-5 used
-19 remaining
-```
-
-Demo Manager:
-
-```text
-24 total
-8 used
-16 remaining
-```
+These credentials are for local development only. Do not reuse them in a deployed or shared environment.
 
 ## Test cases
 
