@@ -7,14 +7,15 @@ from app.security import hash_password
 Base.metadata.create_all(bind=engine)
 
 DEMO = [
-    ("Demo Employee", "employee@example.com", secrets.token_urlsafe(24), "employee", "Engineering", "Senior Software Engineer", 5),
-    ("Demo Manager", "manager@example.com", secrets.token_urlsafe(24), "manager", "Engineering", "Engineering Manager", 8),
+    ("Demo Employee", "employee@example.com", "demo-password", "employee", "Engineering", "Senior Software Engineer", 5),
+    ("Demo Manager", "manager@example.com", "demo-password", "manager", "Engineering", "Engineering Manager", 8),
 ]
 
 with SessionLocal() as db:
     for name, email, password, role, dept, title, used in DEMO:
         user = db.scalar(select(User).where(User.email == email))
         if user:
+            user.password_hash = hash_password(password)
             continue
         user = User(
             name=name, email=email, password_hash=hash_password(password),
@@ -31,5 +32,5 @@ with SessionLocal() as db:
     db.commit()
 
 print("Seed complete.")
-print("Employee: manager@example.com / sameer123")
-print("Manager:  manager@example.com / priya123")
+print("Employee: manager@example.com / demo-password")
+print("Manager:  manager@example.com / demo-password")
