@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: project3-advanced-agent-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: advanced_agent
+      POSTGRES_USER: agent_user
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set_POSTGRES_PASSWORD_locally}
+    ports:
+      - "5432:5432"
+    volumes:
+      - project3_postgres_data:/var/lib/postgresql/data
+volumes:
+  project3_postgres_data:

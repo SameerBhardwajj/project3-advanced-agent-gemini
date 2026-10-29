@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+google-genai
+python-dotenv
+pydantic
+sqlalchemy
+psycopg[binary]
+PyJWT
+
+pgvector
+numpy
+
+python-dateutil
