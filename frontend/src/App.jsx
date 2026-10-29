@@ -9,8 +9,8 @@ const headers = token => ({
 export default function App() {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(null);
-  const [email, setEmail] = useState("sameer@example.com");
-  const [password, setPassword] = useState("sameer123");
+  const [email, setEmail] = useState("employee@example.com");
+  const [password, setPassword] = useState("demo-password");
   const [chats, setChats] = useState([]);
   const [chatId, setChatId] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -82,7 +82,7 @@ export default function App() {
     <input value={email} onChange={e=>setEmail(e.target.value)} placeholder="Email"/>
     <input type="password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="Password"/>
     <button>Login</button>
-    <small>Employee: sameer@example.com / sameer123<br/>Manager: priya@example.com / priya123</small>
+    <small>Employee: employee@example.com / demo-password<br/>Manager: manager@example.com / demo-password</small>
     {error&&<div className="error">{error}</div>}
   </form></div>;
 
